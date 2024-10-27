@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Öğrenme Platformu</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="flex h-screen">
+        <!-- Sol Navigasyon -->
+        <nav class="w-72 bg-white shadow-lg overflow-y-auto border-r border-gray-200 transition-all duration-300 ease-in-out">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
+                    <i class="fab fa-python mr-3 text-blue-500"></i>
+                    Python
+                </h1>
+                <div class="space-y-3">
+                    {% for main_topic, subtopics in topic_tree.items() %}
+                        <div class="topic-group">
+                            <button class="topic-main w-full text-left px-4 py-2 rounded-lg hover:bg-gray-50 font-medium text-gray-700 transition duration-200 flex items-center justify-between">
+                                <span>{{ main_topic }}</span>
+                                <i class="fas fa-chevron-right text-sm text-gray-400 transform transition-transform duration-200"></i>
+                            </button>
+                            <div class="subtopics hidden ml-4 mt-2 space-y-1">
+                                {% for category, topics in subtopics.items() %}
+                                    <div class="category">
+                                        <button class="category-main w-full text-left px-3 py-2 rounded-md hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center justify-between">
+                                            <span>{{ category }}</span>
+                                            <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                                        </button>
+                                        <div class="topics hidden ml-3 mt-1 space-y-1">
+                                            {% for topic in topics %}
+                                                <button class="topic w-full text-left px-3 py-2 rounded-md hover:bg-blue-50 text-sm text-gray-500 hover:text-blue-600 transition duration-200"
+                                                        data-topic="{{ topic }}">
+                                                    {{ topic }}
+                                                </button>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </nav>
+
+        <!-- Ana İçerik -->
+        <div class="flex-1 flex flex-col bg-gray-50">
+            <!-- Üst Başlık -->
+            <header class="bg-white shadow-sm border-b border-gray-200">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <h2 id="current-topic" class="text-xl font-semibold text-gray-800 flex items-center">
+                        <i class="fas fa-book-open mr-3 text-blue-500"></i>
+                        <span>Python Öğrenme Platformu</span>
+                    </h2>
+                    <div class="flex items-center space-x-4">
+                        <button class="text-gray-500 hover:text-gray-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        <button class="text-gray-500 hover:text-gray-600">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Alanı -->
+            <div class="flex-1 overflow-hidden flex flex-col">
+                <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-6">
+                    <!-- Mesajlar buraya dinamik olarak eklenecek -->
+                </div>
+                
+                <!-- Mesaj Gönderme -->
+                <div class="p-6 bg-white border-t border-gray-200">
+                    <div class="max-w-4xl mx-auto flex items-center space-x-4">
+                        <div class="flex-1 relative">
+                            <input type="text" id="message-input" 
+                                   class="w-full border border-gray-300 rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
+                                   placeholder="Mesajınızı yazın...">
+                            <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                        </div>
+                        <button id="send-button"
+                                class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm flex items-center">
+                            <span>Gönder</span>
+                            <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

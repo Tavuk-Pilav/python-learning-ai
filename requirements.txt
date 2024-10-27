@@ -1,0 +1,4 @@
+flask 
+google-generativeai 
+markdown 
+bleach

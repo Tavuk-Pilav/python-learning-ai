@@ -1,1 +1,1 @@
-# btk-hackathon
+# LLM Python Instructor
