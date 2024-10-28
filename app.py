@@ -127,7 +127,7 @@ class EnhancedTutorSession:
     """Gelişmiş öğretmen asistanı oturumu."""
     
     def __init__(self, api_key: str):
-        genai.configure(api_key="gemini-api-key")
+        genai.configure(api_key=api_key)
         self.model = genai.GenerativeModel('gemini-pro')
         self.history: List[Dict] = []
         self.current_topic: Optional[str] = None
@@ -296,7 +296,7 @@ def chat():
     topic = data.get('topic')
     
     if session_id not in sessions:
-        sessions[session_id] = EnhancedTutorSession(os.getenv('gemini-api-key'))
+        sessions[session_id] = EnhancedTutorSession(os.getenv('GEMINI_API_KEY'))
     
     session = sessions[session_id]
     session.current_topic = topic
@@ -309,8 +309,8 @@ def chat():
     html_response = bleach.clean(
         markdown(response, extensions=['fenced_code', 'tables']),
         tags=['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'code', 'pre', 
-              'strong', 'em', 'ul', 'ol', 'li', 'table', 'thead', 'tbody',
-              'tr', 'th', 'td', 'blockquote', 'br'],
+            'strong', 'em', 'ul', 'ol', 'li', 'table', 'thead', 'tbody',
+            'tr', 'th', 'td', 'blockquote', 'br'],
         attributes={'code': ['class'], 'pre': ['class']}
     )
     
