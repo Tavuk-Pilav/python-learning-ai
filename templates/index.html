@@ -12,7 +12,7 @@
 <body class="bg-gray-50">
     <div class="flex h-screen">
         <!-- Sol Navigasyon -->
-        <nav class="w-72 bg-white shadow-lg overflow-y-auto border-r border-gray-200 transition-all duration-300 ease-in-out">
+        <nav class="w-72 bg-white shadow-lg overflow-y-auto border-r border-gray-200">
             <div class="p-6">
                 <h1 class="text-2xl font-bold mb-6 text-gray-800 flex items-center">
                     <i class="fab fa-python mr-3 text-blue-500"></i>
@@ -21,21 +21,20 @@
                 <div class="space-y-3">
                     {% for main_topic, subtopics in topic_tree.items() %}
                         <div class="topic-group">
-                            <button class="topic-main w-full text-left px-4 py-2 rounded-lg hover:bg-gray-50 font-medium text-gray-700 transition duration-200 flex items-center justify-between">
+                            <button class="topic-main w-full text-left flex items-center justify-between">
                                 <span>{{ main_topic }}</span>
-                                <i class="fas fa-chevron-right text-sm text-gray-400 transform transition-transform duration-200"></i>
+                                <i class="fas fa-chevron-right text-sm"></i>
                             </button>
-                            <div class="subtopics hidden ml-4 mt-2 space-y-1">
+                            <div class="subtopics hidden">
                                 {% for category, topics in subtopics.items() %}
                                     <div class="category">
-                                        <button class="category-main w-full text-left px-3 py-2 rounded-md hover:bg-gray-50 text-sm font-medium text-gray-600 flex items-center justify-between">
+                                        <button class="category-main w-full text-left flex items-center justify-between">
                                             <span>{{ category }}</span>
-                                            <i class="fas fa-chevron-down text-xs text-gray-400"></i>
+                                            <i class="fas fa-chevron-down text-xs"></i>
                                         </button>
-                                        <div class="topics hidden ml-3 mt-1 space-y-1">
+                                        <div class="topics hidden">
                                             {% for topic in topics %}
-                                                <button class="topic w-full text-left px-3 py-2 rounded-md hover:bg-blue-50 text-sm text-gray-500 hover:text-blue-600 transition duration-200"
-                                                        data-topic="{{ topic }}">
+                                                <button class="topic w-full text-left" data-topic="{{ topic }}">
                                                     {{ topic }}
                                                 </button>
                                             {% endfor %}
@@ -50,7 +49,7 @@
         </nav>
 
         <!-- Ana İçerik -->
-        <div class="flex-1 flex flex-col bg-gray-50">
+        <div class="flex-1 flex flex-col">
             <!-- Üst Başlık -->
             <header class="bg-white shadow-sm border-b border-gray-200">
                 <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -59,10 +58,13 @@
                         <span>Python Öğrenme Platformu</span>
                     </h2>
                     <div class="flex items-center space-x-4">
-                        <button class="text-gray-500 hover:text-gray-600">
+                        <button class="header-icon">
                             <i class="fas fa-search"></i>
                         </button>
-                        <button class="text-gray-500 hover:text-gray-600">
+                        <button class="header-icon">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="header-icon">
                             <i class="fas fa-cog"></i>
                         </button>
                     </div>
@@ -71,27 +73,53 @@
 
             <!-- Chat Alanı -->
             <div class="flex-1 overflow-hidden flex flex-col">
-                <div id="chat-messages" class="flex-1 overflow-y-auto p-6 space-y-6">
-                    <!-- Mesajlar buraya dinamik olarak eklenecek -->
+                <div id="chat-messages" class="flex-1 overflow-y-auto">
+                    <!-- Örnek Mesajlar -->
+                    <div class="message assistant-message">
+                        <div class="message-content">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="markdown-content">
+                                <p>Merhaba! Python öğrenmeye başlamak için hangi konuyla ilgilenmek istersiniz?</p>
+                            </div>
+                            <div class="message-time">14:30</div>
+                        </div>
+                    </div>
+
+                    <div class="message user-message">
+                        <div class="message-content">
+                            <div class="markdown-content">
+                                <p>Temel veri yapıları hakkında bilgi almak istiyorum.</p>
+                            </div>
+                            <div class="message-time">14:31</div>
+                            <div class="message-status">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                        </div>
+                        <div class="message-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Mesaj Gönderme -->
-                <div class="p-6 bg-white border-t border-gray-200">
-                    <div class="max-w-4xl mx-auto flex items-center space-x-4">
-                        <div class="flex-1 relative">
-                            <input type="text" id="message-input" 
-                                   class="w-full border border-gray-300 rounded-full px-6 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm"
-                                   placeholder="Mesajınızı yazın...">
-                            <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <input type="text" id="message-input" placeholder="Mesajınızı yazın...">
+                        <div class="input-actions">
+                            <button class="action-button">
                                 <i class="fas fa-paperclip"></i>
                             </button>
+                            <button class="action-button">
+                                <i class="fas fa-image"></i>
+                            </button>
                         </div>
-                        <button id="send-button"
-                                class="bg-blue-500 text-white px-8 py-3 rounded-full hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-sm flex items-center">
-                            <span>Gönder</span>
-                            <i class="fas fa-paper-plane ml-2"></i>
-                        </button>
                     </div>
+                    <button id="send-button">
+                        <span>Gönder</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
                 </div>
             </div>
         </div>
