@@ -17,6 +17,8 @@ Projenin canlı versiyonuna [https://btk-hackathon-1.onrender.com/](https://btk-
 - Kod analizi desteği
 - Dark/Light tema seçeneği
 
+<img src="https://github.com/user-attachments/assets/1987817b-b45e-431a-8479-37812845716b" alt="image" width="700"/>
+
 ## 🌟 Özellikler
 
 ### 1. Akıllı Öğretmen Asistanı
