@@ -16,7 +16,7 @@ app = Flask(__name__)
 app.secret_key = 'GüvenliBirGizliAnahtar'  # Bunu güvenli bir şekilde ayarlayın
 
 API_KEY = os.getenv('API_KEY')
-SERVICE_ACCOUNT_KEY_PATH = os.getenv('SERVICE_ACCOUNT_KEY_PATH')
+SERVICE_ACCOUNT_KEY_PATH = os.getenv('SERVICE_ACCOUNT_KEY')
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
 # Firebase Admin SDK'yı başlatma
