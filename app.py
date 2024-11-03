@@ -15,9 +15,20 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = 'GüvenliBirGizliAnahtar'  # Bunu güvenli bir şekilde ayarlayın
 
+# Ortam değişkenlerini yükleyin
 API_KEY = os.getenv('API_KEY')
-SERVICE_ACCOUNT_KEY_PATH = os.getenv('SERVICE_ACCOUNT_KEY')
+SERVICE_ACCOUNT_KEY_JSON = os.getenv('SERVICE_ACCOUNT_KEY')  # JSON içeriği
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+
+app = Flask(__name__)
+
+# Geçici dosya yolu
+service_account_path = "/tmp/service_account.json"
+
+# JSON içeriğini geçici dosyaya yaz
+if SERVICE_ACCOUNT_KEY_JSON:
+    with open(service_account_path, "w") as f:
+        f.write(SERVICE_ACCOUNT_KEY_JSON)
 
 # Firebase Admin SDK'yı başlatma
 cred = credentials.Certificate(SERVICE_ACCOUNT_KEY_PATH)
