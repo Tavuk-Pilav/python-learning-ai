@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Giriş/Kayıt Ol</title>
+  <!-- Firebase SDK'yı ekliyoruz -->
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth-compat.js"></script>
+  <!-- CSS dosyalarını ekleyin -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+  <div class="container" id="container">
+    <!-- Kayıt Ol Formu -->
+    <div class="form-container sign-up-container">
+      <form action="javascript:signUp();">
+        <h1>Create Account</h1>
+        <input type="text" placeholder="Name" id="signup-name" />
+        <input type="email" placeholder="Email" id="signup-email" />
+        <input type="password" placeholder="Password" id="signup-password" />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+    <!-- Giriş Formu -->
+    <div class="form-container sign-in-container">
+      <form action="javascript:signIn();">
+        <h1>Sign in</h1>
+        <input type="email" placeholder="Email" id="signin-email" />
+        <input type="password" placeholder="Password" id="signin-password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+    <!-- Overlay -->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Firebase API anahtarını JS içinde kullanmak için -->
+  <script>
+    const API_KEY = "{{ API_KEY }}";
+  </script>
+  <!-- JavaScript dosyalarını ekleyin -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="{{ url_for('static', filename='login.js') }}"></script>
+</body>
+</html>

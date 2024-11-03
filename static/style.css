@@ -1,0 +1,350 @@
+/* static/style.css */
+:root {
+  --message-bg-user: #E3F2FD;
+  --message-bg-assistant: #F5F5F5;
+  --code-bg: #ffffff;
+  --strong-color: #2B6CB0;
+  --transition-default: all 0.3s ease;
+}
+
+/* Message Styles */
+.message {
+  max-width: 80%;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 1rem;
+  position: relative;
+  transition: var(--transition-default);
+}
+
+.message:hover {
+  transform: translateY(-2px);
+}
+
+.user-message {
+  background-color: var(--message-bg-user);
+  margin-left: auto;
+  border-bottom-right-radius: 0.25rem;
+}
+
+.assistant-message {
+  background-color: var(--message-bg-assistant);
+  margin-right: auto;
+  border-bottom-left-radius: 0.25rem;
+}
+
+.message-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.message-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+}
+
+.message-time {
+  font-size: 0.75rem;
+  color: #6B7280;
+  margin-top: 0.5rem;
+}
+
+.message-status {
+  font-size: 0.75rem;
+  color: #2563eb;
+  text-align: right;
+  margin-top: 0.25rem;
+}
+
+
+/* Markdown Content */
+.markdown-content {
+  line-height: 1.7;
+  color: #374151;
+  flex: 1;
+}
+
+.markdown-content pre {
+  background-color: var(--code-bg);
+  padding: 1.25rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.markdown-content code {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.95em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  background: rgba(0,0,0,0.05);
+}
+
+.markdown-content p {
+  margin: 0.75rem 0;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  margin: 0.75rem 0;
+  padding-left: 1.75rem;
+}
+
+.markdown-content li {
+  margin: 0.5rem 0;
+}
+
+.markdown-content strong {
+  color: var(--strong-color);
+  font-weight: 600;
+}
+
+/* Navigation Styles */
+.topic-main,
+.category-main,
+.topic {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
+  transition: var(--transition-default);
+}
+
+.topic-main:hover,
+.category-main:hover,
+.topic:hover {
+  background-color: #EFF6FF;
+  color: #2563eb;
+}
+
+.topic-main i,
+.category-main i {
+  transition: transform 0.2s ease;
+}
+
+.topic-main:hover i,
+.category-main:hover i {
+  transform: translateX(2px);
+}
+
+/* Header Icons */
+.header-icon {
+  color: #6B7280;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: var(--transition-default);
+}
+
+.header-icon:hover {
+  color: #2563eb;
+  background-color: #EFF6FF;
+}
+
+/* Input Area */
+.input-container {
+  padding: 1rem;
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.input-wrapper {
+  flex: 1;
+  position: relative;
+  background: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  transition: var(--transition-default);
+}
+
+.input-wrapper:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+#message-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.input-actions {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 0.75rem;
+}
+
+.action-button {
+  color: #6B7280;
+  transition: var(--transition-default);
+}
+
+.action-button:hover {
+  color: #2563eb;
+}
+
+#send-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #2563eb;
+  color: white;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: var(--transition-default);
+}
+
+#send-button:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Hide Implementation */
+.hidden {
+  display: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+/* Dark mode renkleri */
+body.dark {
+  --message-bg-user: #374151;
+  --message-bg-assistant: #1f2937;
+  --code-bg: #1f2937;
+  --strong-color: #93C5FD;
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.dark .message.user-message {
+  background-color: var(--message-bg-user);
+}
+
+.dark .message.assistant-message {
+  background-color: var(--message-bg-assistant);
+}
+
+.dark .markdown-content {
+  color: #d1d5db;
+}
+
+.dark .message-avatar {
+  background: #374151;
+  color: #93c5fd;
+}
+
+.dark .input-container {
+  background-color: #374151;
+  border-top-color: #4b5563;
+}
+
+.dark .input-wrapper {
+  background: #1f2937;
+  border-color: #4b5563;
+}
+
+.dark #message-input {
+  background: transparent;
+  color: #d1d5db;
+}
+
+.dark .header-icon {
+  color: #9CA3AF;
+}
+
+.dark .header-icon:hover {
+  background-color: #374151;
+  color: #ffffff;
+}
+
+.dark #send-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Dark mode için sol ve üst paneldeki renkler */
+.dark .topic-main,
+.dark .category-main,
+.dark .topic {
+  color: #d1d5db;
+}
+
+.dark .topic-main:hover,
+.dark .category-main:hover,
+.dark .topic:hover {
+  color: #93c5fd;
+  background-color: #374151;
+}
+
+.dark nav {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.dark header {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+
+/* Dark Mode Başlık Stilleri */
+body.dark h1, 
+body.dark h2, 
+body.dark h3, 
+body.dark #current-topic {
+  color: #ffffff;
+}
+
+/* Dark mode için sol paneldeki sohbet oturumu isimleri */
+.dark #chat-sessions button {
+  color: #ffffff; /* Beyaz metin rengi */
+  background-color: #374151; /* Arka plan uyumu */
+}
+
+.dark #chat-sessions button:hover {
+  background-color: #4b5563; /* Hover sırasında daha açık bir gri ton */
+  color: #93c5fd; /* Mavi renk tonu */
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Öğrenme Platformu</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-white transition duration-300">
+    <div class="flex h-screen">
+        <!-- Sol Navigasyon - Chat Oturumları -->
+        <!-- Sol Navigasyon - Chat Oturumları -->
+        <nav class="w-64 bg-white shadow-lg overflow-y-auto border-r border-gray-200 dark:bg-gray-800">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center">
+                    <i class="fas fa-comments mr-3 text-blue-500"></i>
+                    Sohbetler
+                </h1>
+                <ul id="chat-sessions" class="space-y-3">
+                    <!-- JavaScript ile doldurulacak -->
+                </ul>
+                <button id="new-session-button" class="mt-4 w-full p-2 bg-blue-500 text-white rounded-lg">
+                    Yeni Sohbet Oturumu Oluştur
+                </button>
+            </div>
+        </nav>
+
+        <!-- Ana İçerik -->
+        <div class="flex-1 flex flex-col">
+            <!-- Üst Başlık -->
+            <header class="bg-white shadow-sm border-b border-gray-200 dark:bg-gray-800 dark:text-white">
+                <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <h2 id="current-topic" class="text-xl font-semibold text-gray-800 dark:text-white flex items-center">
+                        <i class="fas fa-book-open mr-3 text-blue-500"></i>
+                        <span>Python Öğrenme Platformu</span>
+                    </h2>
+                    <div class="flex items-center space-x-4">
+                        <button id="toggle-dark-mode" class="header-icon">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="header-icon">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <button id="logout-button" class="header-icon">
+                            <i class="fas fa-sign-out-alt"></i> 
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Chat Alanı -->
+            <div class="flex-1 overflow-hidden flex flex-col">
+                <div id="chat-messages" class="flex-1 overflow-y-auto">
+                    <!-- Örnek Mesajlar -->
+                    <div class="message assistant-message">
+                        <div class="message-content">
+                            <div class="message-avatar">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="markdown-content">
+                                <p>Merhaba! Python öğrenmeye başlamak için hangi konuyla ilgilenmek istersiniz?</p>
+                            </div>
+                            <div class="message-time">14:30</div>
+                        </div>
+                    </div>
+
+                    <div class="message user-message">
+                        <div class="message-content">
+                            <div class="markdown-content">
+                                <p>Temel veri yapıları hakkında bilgi almak istiyorum.</p>
+                            </div>
+                            <div class="message-time">14:31</div>
+                            <div class="message-status">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                        </div>
+                        <div class="message-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mesaj Gönderme -->
+                <div class="input-container dark:bg-gray-700">
+                    <div class="input-wrapper">
+                        <input type="text" id="message-input" placeholder="Mesajınızı yazın..." class="dark:bg-gray-600 dark:text-white">
+                        <div class="input-actions">
+                            <button class="action-button">
+                                <i class="fas fa-paperclip"></i>
+                            </button>
+                            <button class="action-button">
+                                <i class="fas fa-image"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <button id="send-button" class="dark:bg-blue-600">
+                        <span>Gönder</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+         <!-- Sağ Navigasyon -->
+         <nav class="w-72 bg-white shadow-lg overflow-y-auto border-l border-gray-200 dark:bg-gray-800">
+            <div class="p-6">
+                <h1 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white flex items-center">
+                    <i class="fab fa-python mr-3 text-blue-500"></i>
+                    Python
+                </h1>
+                <div class="space-y-3">
+                    {% for main_topic, subtopics in topic_tree.items() %}
+    <div class="topic-group">
+        <button class="topic-main w-full text-left flex items-center justify-between text-gray-700 dark:text-gray-200">
+            <span>{{ main_topic }}</span>
+            <i class="fas fa-chevron-right text-sm"></i>
+        </button>
+        <div class="subtopics hidden">
+            {% for category in subtopics %}
+                <div class="category">
+                    <button class="category-main w-full text-left flex items-center justify-between text-gray-700 dark:text-gray-200">
+                        <span>{{ category }}</span>
+                        <i class="fas fa-chevron-down text-xs"></i>
+                    </button>
+                    <div class="topics hidden">
+                        {% for topic in subtopics[category] %}
+                            <button class="topic w-full text-left" data-topic="{{ topic }}">
+                                {{ topic }}
+                            </button>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-python.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
