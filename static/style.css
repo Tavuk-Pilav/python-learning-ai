@@ -249,4 +249,102 @@
 .message {
   animation: fadeIn 0.3s ease-out forwards;
 }
+/* Dark mode renkleri */
+body.dark {
+  --message-bg-user: #374151;
+  --message-bg-assistant: #1f2937;
+  --code-bg: #1f2937;
+  --strong-color: #93C5FD;
+  background-color: #1f2937;
+  color: #ffffff;
+}
 
+.dark .message.user-message {
+  background-color: var(--message-bg-user);
+}
+
+.dark .message.assistant-message {
+  background-color: var(--message-bg-assistant);
+}
+
+.dark .markdown-content {
+  color: #d1d5db;
+}
+
+.dark .message-avatar {
+  background: #374151;
+  color: #93c5fd;
+}
+
+.dark .input-container {
+  background-color: #374151;
+  border-top-color: #4b5563;
+}
+
+.dark .input-wrapper {
+  background: #1f2937;
+  border-color: #4b5563;
+}
+
+.dark #message-input {
+  background: transparent;
+  color: #d1d5db;
+}
+
+.dark .header-icon {
+  color: #9CA3AF;
+}
+
+.dark .header-icon:hover {
+  background-color: #374151;
+  color: #ffffff;
+}
+
+.dark #send-button {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* Dark mode için sol ve üst paneldeki renkler */
+.dark .topic-main,
+.dark .category-main,
+.dark .topic {
+  color: #d1d5db;
+}
+
+.dark .topic-main:hover,
+.dark .category-main:hover,
+.dark .topic:hover {
+  color: #93c5fd;
+  background-color: #374151;
+}
+
+.dark nav {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+.dark header {
+  background-color: #374151;
+  border-color: #4b5563;
+  color: #d1d5db;
+}
+
+/* Dark Mode Başlık Stilleri */
+body.dark h1, 
+body.dark h2, 
+body.dark h3, 
+body.dark #current-topic {
+  color: #ffffff;
+}
+
+/* Dark mode için sol paneldeki sohbet oturumu isimleri */
+.dark #chat-sessions button {
+  color: #ffffff; /* Beyaz metin rengi */
+  background-color: #374151; /* Arka plan uyumu */
+}
+
+.dark #chat-sessions button:hover {
+  background-color: #4b5563; /* Hover sırasında daha açık bir gri ton */
+  color: #93c5fd; /* Mavi renk tonu */
+}
