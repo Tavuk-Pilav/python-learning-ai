@@ -20,8 +20,6 @@ API_KEY = os.getenv('API_KEY')
 SERVICE_ACCOUNT_KEY_JSON = os.getenv('SERVICE_ACCOUNT_KEY')  # JSON içeriği
 GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
 
-app = Flask(__name__)
-
 # Geçici dosya yolu
 service_account_path = "/tmp/service_account.json"
 
@@ -31,7 +29,7 @@ if SERVICE_ACCOUNT_KEY_JSON:
         f.write(SERVICE_ACCOUNT_KEY_JSON)
 
 # Firebase Admin SDK'yı başlatma
-cred = credentials.Certificate(SERVICE_ACCOUNT_KEY_PATH)
+cred = credentials.Certificate(service_account_path)
 firebase_admin.initialize_app(cred)
 
 # Google Generative AI yapılandırması
@@ -40,6 +38,8 @@ model = genai.GenerativeModel('gemini-pro')
 
 # Firestore istemcisini başlat
 db = firestore.client()
+
+# Diğer kodlarınız burada devam ediyor...
 
 TOPIC_TREE = {
     "Python": {
