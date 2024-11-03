@@ -1,4 +1,5 @@
-﻿annotated-types==0.7.0
+# Ortak bağımlılıklar (tüm platformlarda çalışacak bağımlılıklar)
+annotated-types==0.7.0
 anyio==4.6.2.post1
 asttokens==2.4.1
 attrs==24.2.0
@@ -84,7 +85,6 @@ PySocks==1.7.1
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
 pytz==2024.1
-pywin32==307; platform_system == "Windows"
 pyzmq==26.2.0
 requests==2.32.3
 requests-oauthlib==2.0.0
@@ -113,3 +113,6 @@ webencodings==0.5.1
 websocket-client==1.8.0
 Werkzeug==3.0.4
 wsproto==1.2.0
+
+# Yalnızca Windows'a özel bağımlılıklar
+pywin32==307; platform_system == "Windows"
