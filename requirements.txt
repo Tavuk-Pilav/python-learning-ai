@@ -113,6 +113,7 @@ webencodings==0.5.1
 websocket-client==1.8.0
 Werkzeug==3.0.4
 wsproto==1.2.0
+gunicorn==20.1.0
 
 # Yalnızca Windows'a özel bağımlılıklar
 pywin32==307; platform_system == "Windows"
