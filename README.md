@@ -4,7 +4,7 @@ An interactive educational platform powered by artificial intelligence for learn
 
 ## 🌐 Demo
 
-Access the live version of the project at [https://btk-hackathon-1.onrender.com/](https://btk-hackathon-1.onrender.com/)
+Access the live version of the project at [https://python-learning-ai.onrender.com](https://python-learning-ai.onrender.com)
 
 ### Test Account
 *Any email and 6-digit password are sufficient for registration and login.*
@@ -59,8 +59,8 @@ Access the live version of the project at [https://btk-hackathon-1.onrender.com/
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/python-learning-platform.git
-cd python-learning-platform
+git clone https://github.com/Tavuk-Pilav/python-learning-ai.git
+cd python-learning-ai
 ```
 
 2. Install required Python packages
