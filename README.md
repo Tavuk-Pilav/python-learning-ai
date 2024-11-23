@@ -1,129 +1,128 @@
-# Python Öğrenme Platformu 🚀
+# Python Learning Platform 🚀
 
-Bu proje, Python programlama dilini öğrenmek isteyenler için interaktif bir eğitim platformudur. Yapay zeka destekli bir öğretmen asistanı ile birlikte çalışarak Python'ı adım adım öğrenmenizi sağlar.
+An interactive educational platform powered by artificial intelligence for learning Python programming language. The platform features an AI-powered teaching assistant that guides users through step-by-step Python learning.
 
 ## 🌐 Demo
 
-Projenin canlı versiyonuna [https://btk-hackathon-1.onrender.com/](https://btk-hackathon-1.onrender.com/) adresinden erişebilirsiniz.
+Access the live version of the project at [https://btk-hackathon-1.onrender.com/](https://btk-hackathon-1.onrender.com/)
 
-### Test Hesabı
-*Herhangi bir email ve 6 haneli şifre kayıt olmak ve giriş yapmak için yeterlidir.*
+### Test Account
+*Any email and 6-digit password are sufficient for registration and login.*
 - Email: test@example.com
-- Şifre: test123
+- Password: test123
 
-### Demo Özellikleri
-- Tüm temel özelliklere erişim
-- Sınırsız chat oturumu
-- Kod analizi desteği
-- Dark/Light tema seçeneği
+### Demo Features
+- Access to all core functionalities
+- Unlimited chat sessions
+- Code analysis support
+- Dark/Light theme options
 
 <img src="https://github.com/user-attachments/assets/1987817b-b45e-431a-8479-37812845716b" alt="image" width="700"/>
 
-## 🌟 Özellikler
+## 🌟 Features
 
-### 1. Akıllı Öğretmen Asistanı
-- Google Gemini AI destekli interaktif öğretmen
-- Öğrenci seviyesine göre adapte olan içerik
-- Gerçek zamanlı geri bildirim ve değerlendirme
-- Kod örnekleri ve açıklamalar
+### 1. Intelligent Teaching Assistant
+- Interactive tutor powered by Google Gemini AI
+- Content that adapts to student proficiency
+- Real-time feedback and assessment
+- Code examples and explanations
 
-### 2. Kod Analiz Aracı
-- GitHub repositorilerinden kod analizi
-- Detaylı kod değerlendirme raporları
-- Güvenlik ve performans önerileri
-- Jupyter Notebook desteği
+### 2. Code Analysis Tool
+- Code analysis from GitHub repositories
+- Detailed code evaluation reports
+- Security and performance recommendations
+- Jupyter Notebook support
 
-### 3. Kapsamlı Müfredat
-- Temel Python kavramları
-- Nesne Yönelimli Programlama
-- Veri Yapıları ve Algoritmalar
-- İleri Seviye Python Konuları
+### 3. Comprehensive Curriculum
+- Python fundamentals
+- Object-Oriented Programming
+- Data Structures and Algorithms
+- Advanced Python topics
 
-### 4. Kullanıcı Özellikleri
-- Kişisel oturum yönetimi
-- İlerleme takibi
-- Dark/Light tema desteği
-- Responsive tasarım
+### 4. User Features
+- Personal session management
+- Progress tracking
+- Dark/Light theme support
+- Responsive design
 
-## 🔧 Teknolojiler
+## 🔧 Technology Stack
 
 - **Backend**: Flask (Python)
 - **Frontend**: HTML, CSS, JavaScript, React
-- **Veritabanı**: Firebase Firestore
-- **Kimlik Doğrulama**: Firebase Authentication
+- **Database**: Firebase Firestore
+- **Authentication**: Firebase Authentication
 - **AI**: Google Gemini AI
-- **Stil**: Tailwind CSS
-- **Kod Vurgulama**: Prism.js
+- **Styling**: Tailwind CSS
+- **Code Highlighting**: Prism.js
 
-## 💻 Kurulum
+## 💻 Installation
 
-1. Repository'yi klonlayın
+1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/python-learning-platform.git
 cd python-learning-platform
 ```
 
-2. Gerekli Python paketlerini yükleyin
+2. Install required Python packages
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Gerekli yapılandırma dosyalarını oluşturun
+3. Create necessary configuration files
 
-`.env` dosyası:
+`.env` file:
 ```plaintext
 API_KEY="your_firebase_api_key"
 GEMINI_API_KEY="your_gemini_api_key"
 ```
 
-`firebase-credentials.json` dosyasını projenin kök dizinine yerleştirin.
+Place `firebase-credentials.json` in the project root directory.
 
-4. Uygulamayı başlatın
+4. Launch the application
 ```bash
 python app.py
 ```
 
-## 📝 Kullanım
+## 📝 Usage Guide
 
-1. **Giriş Yapma**
-   - Email ve şifre ile kayıt olun
-   - Firebase Authentication ile giriş yapın
+1. **Authentication**
+   - Register with email and password
+   - Sign in using Firebase Authentication
 
-2. **Konu Seçimi**
-   - Sol panelden konuları görüntüleyin
-   - İstediğiniz konuyu seçin
+2. **Topic Selection**
+   - View topics in the left panel
+   - Select desired topic
 
-3. **Öğrenme**
-   - Asistan ile interaktif sohbet
-   - Kod örneklerini deneyin
-   - Anında geri bildirim alın
+3. **Learning**
+   - Interactive chat with the assistant
+   - Try code examples
+   - Receive instant feedback
 
-4. **Kod Analizi**
-   - Sağ alt köşedeki kod analizi butonuna tıklayın
-   - GitHub URL'sini girin
-   - Detaylı analiz raporunu görüntüleyin
+4. **Code Analysis**
+   - Click the code analysis button in the bottom right
+   - Enter GitHub URL
+   - View detailed analysis report
 
-## 🔐 Güvenlik
+## 🔐 Security
 
-- Firebase Authentication ile güvenli giriş
-- HTTPS üzerinden güvenli iletişim
-- Kullanıcı verilerinin güvenli saklanması
-- API anahtarlarının çevresel değişkenlerle korunması
+- Secure login with Firebase Authentication
+- Secure communication over HTTPS
+- Safe storage of user data
+- API key protection through environmental variables
 
-## 🤝 Katkıda Bulunma
+## 🤝 Contributing
 
-1. Fork'layın
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit'leyin (`git commit -m 'Add amazing feature'`)
-4. Push'layın (`git push origin feature/amazing-feature`)
-5. Pull Request oluşturun
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📜 Lisans
+## 📜 License
 
-Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE]([LICENSE](https://mit-license.org/)) linkine bakın.
+This project is licensed under the MIT License. See [LICENSE](https://mit-license.org/) for details.
 
-## 👥 Ekip
+## 👥 Team
 
 - [Enes Fehmi Manan](https://github.com/enesmanan) 
-- [Utku Özüak](https://github.com/ozuakutku) 
-- [Elif Nur Kemiksiz](https://github.com/SSanary)
+- [Utku Özüak](https://github.com/ozuakutku)
