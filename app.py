@@ -25,7 +25,7 @@ firebase_admin.initialize_app(cred)
 
 # Google Generative AI yapılandırması
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-2.0-flash')
 
 # Firestore istemcisini başlat
 db = firestore.client()
