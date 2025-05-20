@@ -248,7 +248,7 @@ class EnhancedTutorSession:
 
     def __init__(self, api_key: str):
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-pro')
+        self.model = genai.GenerativeModel('gemini-2.0-flash')
         self.history: List[Dict] = []
         self.current_topic: Optional[str] = None
         self.student_level = "beginner"
